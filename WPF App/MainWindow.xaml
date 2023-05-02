@@ -1,0 +1,40 @@
+﻿<Window x:Class="WPF_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_App"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="1500">
+    <Grid>
+        <Button Command="{Binding Add}" Content="Add" HorizontalAlignment="Left" Margin="250,325,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding Update}" Content="Update" HorizontalAlignment="Left" Margin="280,325,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding Remove}" Content="Remove" HorizontalAlignment="Left" Margin="330,325,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" TextWrapping="Wrap" Text="MyMusic" VerticalAlignment="Top"/>
+        <ListView ItemsSource="{Binding musicList}" SelectedItem="{Binding SelectedMusic}" d:ItemsSource="{d:SampleData ItemCount=10}"  Margin="143,46,953,162" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Width="200" Header="Song"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Artist}" Width="200" Header="Artist"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView ItemsSource="{Binding SelectedPlaylist}" SelectedItem="{Binding SelectedMusic}" d:ItemsSource="{d:SampleData ItemCount=10}" Height="NaN" Margin="961,46,139,162" Width="NaN" RenderTransformOrigin="0.5,0.5" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Title}" Width="200" Header="Song"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding Artist}" Width="200" Header="Artist"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Command="{Binding Lyrics}" Content="Open Lyrics" HorizontalAlignment="Center" Margin="0,325,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,345,0,0" TextWrapping="Wrap" Text="Select the music to see its lyrics' link below:" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,360,0,0" TextWrapping="Wrap" Text="{Binding SelectedMusic.Lyrics}" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Center" Margin="0,199,0,0" TextWrapping="Wrap" Text="{Binding SelectedPlaylistIndex}" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,159,0,0" TextWrapping="Wrap" Text="Choose a Playlist:" VerticalAlignment="Top"/>
+        <Button Command="{Binding Create}" Content="Create Playlist" HorizontalAlignment="Left" Margin="1057,325,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding Show}" Content="Show Playlist" HorizontalAlignment="Center" Margin="0,252,0,0" VerticalAlignment="Top"/>
+        <Button Command="{Binding AddToPlaylist}" Content="Add to this Playlist" HorizontalAlignment="Left" Margin="1140,325,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
