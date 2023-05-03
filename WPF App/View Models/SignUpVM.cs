@@ -46,7 +46,7 @@ namespace WPF_App
                     RequestUri = new Uri($"https://genius-song-lyrics1.p.rapidapi.com/search/?q={title}&per_page=10&page=1"),
                     Headers =
                     {
-                        { "X-RapidAPI-Key", "a92b1fa1e3msh846c0e53420907ap17c5cejsnf3253b0efcef" },
+                        { "X-RapidAPI-Key", "insert here your key" },
                         { "X-RapidAPI-Host", "genius-song-lyrics1.p.rapidapi.com" },
                     },
                 };
